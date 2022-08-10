@@ -12,16 +12,34 @@ const RideSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date_of_ride: {
+    dateTime_of_ride: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
+    },
+    distance: {
+        type: Number,
+        required: false
+    },
+    duration: {
+        type: Number,
+        required: false
     },
     status: {
         type: String,
         required: true
     },
-    location: {
-        type: Array
+    from_location: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
+    },
+    to_location: {
+        type: mongoose.Schema.Types.Mixed,
+        required: true
+    },
+    request_id:{
+        type:String,
+        required: true
     }
 })
 module.exports = mongoose.model("RideModel", RideSchema);

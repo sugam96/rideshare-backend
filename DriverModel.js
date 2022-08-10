@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 
 //Driver Model
 const DriverSchema = new mongoose.Schema({
-    driver_id : {
-        type: String,
-        required: true
-    },
     first_name : {
         type: String,
         required: [true, "Please Enter First Your Name"]
@@ -30,10 +26,6 @@ const DriverSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please Enter Email Address"]
     },
-    address:{
-        type: String,
-        required: [ true, "Please Enter Valid Address"]
-    },
     licence: {
         type:String,
         required:[true, "Please Enter Your Licence"]
@@ -45,6 +37,10 @@ const DriverSchema = new mongoose.Schema({
     vehicle_number: {
         type:String,
         required:[true, "Please Enter Vehicle Number"]
+    },
+    verified :{
+        type: Boolean,
+        default: false
     }
 })
 module.exports=mongoose.model("DriverModel",DriverSchema);
